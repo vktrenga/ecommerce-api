@@ -15,7 +15,7 @@ export interface ProductFilter {
 }
 export class ProductService {
   /**
-   * @desc    This class contain Product's Curd Operations' services
+   * @desc    This class contain Order Operations' services
    * @author  Rengaraj
    * @since   2021
    */
@@ -147,7 +147,7 @@ export class ProductService {
   async listProduct(req, res): Promise<APIResponseData> {
     try {
       const queryFilter: QueryFilter = req.query;
-
+      
       const limitCount: number = queryFilter.limit
         ? queryFilter.limit
         : parseInt(process.env.LIMIT);

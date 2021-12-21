@@ -14,19 +14,21 @@ const orderService = new OrderService();
 const productService = new ProductService();
 
 export class OrderController {
-  // List the all products (Done)
-  // Option to create / update order
-  // Option to  Edit the qty
-  // Option to Cancel the order
-  // Option to calcualte the order amount
-  // Option to delete the product from order
+  /**
+   * @Desc 
+  List the all products (Done)
+  Option to create / update order
+  Option to  Edit the qty
+  Option to calcualte the order amount
+  Option to delete the product from order
+  */
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   constructor() {}
 
   /**
-   *  @Desc Add Poduct
-   *
+   *  @Desc Add / Update Product
+   *  * End Point: Post -> /order
    */
   async addUpdateOrder(req, res): Promise<APIResponse> {
     try {
@@ -45,6 +47,11 @@ export class OrderController {
     }
   }
 
+  /**
+   *  @Desc  Update Product's Qty
+   *  * End Point: Put -> /order
+   */
+
   async updateQty(req, res): Promise<APIResponse> {
     try {
       const errors = validationResult(req);
@@ -61,6 +68,11 @@ export class OrderController {
       return res.status(500).json(result);
     }
   }
+
+  /**
+   *  @Desc  Remove Product
+   *  * End Point: Delete -> /order
+   */
 
   async removeOrderProduct(req, res): Promise<APIResponse> {
     try {
@@ -80,49 +92,9 @@ export class OrderController {
   }
 
   /**
-   *  @Desc Edit Poduct
-   *
+   *  @Desc  Checkout Order
+   *  * End Point: Post -> /order/checkout/:id
    */
-  async editProduct(req, res): Promise<APIResponse> {
-    try {
-      const errors = validationResult(req);
-      if (!errors.isEmpty()) {
-        const result: APIResponseData = APIResponse.error(
-          errors["errors"],
-          402
-        );
-        return res.status(402).json(result);
-      }
-      await productService.editProduct(req, res);
-    } catch (err) {
-      const result: APIResponseData = APIResponse.error(err.message, 500);
-      return res.status(500).json(result);
-    }
-  }
-
-  
-
-  /**
-   *  @Desc Get Poduct
-   *
-   */
-  async getOrderDetails(req, res): Promise<APIResponse> {
-    try {
-      await orderService.getOrderDetails(req, res);
-    } catch (err) {
-      const result: APIResponseData = APIResponse.error(err.message, 500);
-      return res.status(500).json(result);
-    }
-  }
-
-  /**
-   * 
-   * @param req 
-
-   * @param res 
-   * @returns 
-   */
-
   async checkout(req, res): Promise<APIResponse> {
     try {
       await orderService.checkout(req, res);
@@ -131,9 +103,10 @@ export class OrderController {
       return res.status(500).json(result);
     }
   }
+
   /**
-   *  @Desc Get Poducts
-   *
+   *  @Desc  List Product for customer 
+   *  * End Point: Get -> /order/product
    */
   async listProduct(req, res): Promise<APIResponse> {
     try {
