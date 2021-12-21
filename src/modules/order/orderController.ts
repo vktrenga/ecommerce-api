@@ -91,6 +91,21 @@ export class OrderController {
     }
   }
 
+
+  /**
+   *  @Desc  Get Order Details
+   *  * End Point: get -> /order/:id
+   */
+   async getOrderDetails(req, res): Promise<APIResponse> {
+    try {
+      await orderService.getOrderDetails(req, res);
+    } catch (err) {
+      const result: APIResponseData = APIResponse.error(err.message, 500);
+      return res.status(500).json(result);
+    }
+  }
+
+
   /**
    *  @Desc  Checkout Order
    *  * End Point: Post -> /order/checkout/:id
