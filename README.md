@@ -38,7 +38,7 @@ Base Url : localhost:3000/api
 
 Note: 
    I have provide auth here, so User can access the endpoints after authenticate.
-I have provide a option to create inital user by that can create one user then can use it for authentications.
+I have provide a option to create initial user, can create one user by that then can use it for authentications.
 
 
 
