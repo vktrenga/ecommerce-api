@@ -34,8 +34,8 @@ export class OrderService {
 
   /**
    *
-   * @param req {body: {Partial<IProduct>}}
-   * @param res {Partial<IProduct>}
+   * @param req {body: {productId, Qty, _id}}
+   * @param res {Partial<Iorder>}
    * @returns {APIResponse}
    */
 
@@ -148,8 +148,10 @@ export class OrderService {
   }
 
   /**
-   * @Desc updateQty the Order Product Qty / Remove Product 
-   *
+   * @Desc updateQty the Order Product Qty / Remove Product
+   * @param req {body: {productId, Qty, _id}}
+   * @param res {Partial<Iorder>}
+   * @returns {APIResponse}
    */
 
   async updateQty(req, res): Promise<APIResponseData> {
@@ -238,8 +240,11 @@ export class OrderService {
 
   /**
    * @Desc Remvoew the Order Product from order
-   *
+   * @param req {body: {productId, _id}}
+   * @param res {Partial<Iorder>}
+   * @returns {APIResponse}
    */
+
   async removeOrderProduct(req, res): Promise<APIResponseData> {
     try {
       // Get customerOrder From request
@@ -303,7 +308,9 @@ export class OrderService {
 
   /**
    * @Desc Send the Order Details on api
-   *
+   * @param req {params: {_id}}
+   * @param res {Partial<Iorder>}
+   * @returns {APIResponse}
    */
 
   async getOrderDetails(req, res): Promise<APIResponseData> {
@@ -366,6 +373,13 @@ export class OrderService {
     );
   }
 
+  /**
+   * @Desc Checkout the Order 
+   * @param req {params: {_id}}
+   * @param res {Partial<Iorder>}
+   * @returns {APIResponse}
+   */
+
   async checkout(req, res): Promise<APIResponseData> {
     try {
       const { id } = req.params;
@@ -400,49 +414,4 @@ export class OrderService {
       return res.status(500).json(result);
     }
   }
-
-  /**
-   *
-   * @param req {body: {Partial<IProduct>}, param: id}
-   * @param res {Partial<IProduct>}
-   * @returns {APIResponse}
-   */
-
-  /**
-   *
-   * @param req {param: id}
-   * @param res {}
-   * @returns {APIResponse}
-   */
-
-  /**
-   *
-   * @param req {param: Id -> product Id}
-   * @param res {IProduct}
-   * @returns {APIResponse}
-   */
-
-  /**
-   *
-   * @param req {query: QueryFilter}
-   * @param res {IProduct[]}
-   * @returns {APIResponse}
-   */
-
-  //   async orderItemAlreadyExist(
-  //     productFilter: ProductFilter
-  //   ): Promise<IProduct | boolean> {
-  //     try {
-  //       let match: object = {};
-  //       if (productFilter.code) match = { code: orderItems.code, ...match };
-  //       if (productFilter.id) match = { _id: productFilter.id, ...match };
-
-  //       const product: IProduct = await this.productModel.findOne(match);
-  //       if (product) return product;
-  //       return false;
-  //     } catch (err) {
-  //       return false;
-  //     }
-  //   }
-  // }
 }

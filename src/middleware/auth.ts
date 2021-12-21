@@ -6,6 +6,7 @@ import { APIResponse, APIResponseData } from "./response";
 import { APIMessages } from "../utils/constants/APIMessage.constants";
 
 export class AuthController {
+  
   /**
    * @desc    This class contain auth related functions
    * @author  Rengaraj

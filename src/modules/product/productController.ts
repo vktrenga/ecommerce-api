@@ -15,8 +15,13 @@ export class ProductController {
   constructor() {}
 
   /**
-   *  @Desc Add Poduct
    *
+   * @param req (body -> IProduct)
+   * @param res
+   * @returns
+   *
+   *
+   * End Point: Post -> /prodcut
    */
   async addProduct(req, res): Promise<APIResponse> {
     try {
@@ -37,8 +42,13 @@ export class ProductController {
   }
 
   /**
-   *  @Desc Edit Poduct
+   * @Desc Edit Prodcut
+   * @param req (body -> IProduct)
+   * @param res
+   * @returns
    *
+   * 
+   * End Point: put -> /prodcut/:id
    */
   async editProduct(req, res): Promise<APIResponse> {
     try {
@@ -57,9 +67,15 @@ export class ProductController {
     }
   }
 
+  
   /**
-   *  @Desc delete Poduct
+   * @Desc Delete Prodcut
+   * @param req 
+   * @param res
+   * @returns
    *
+   * 
+   * End Point: Delete -> /prodcut/:id
    */
   async deleteProduct(req, res): Promise<APIResponse> {
     try {
@@ -70,9 +86,15 @@ export class ProductController {
     }
   }
 
+  
   /**
-   *  @Desc Get Poduct
+   * @Desc Get Prodcut
+   * @param req  
+   * @param res
+   * @returns
    *
+   * 
+   * End Point: Get -> /prodcut/:id
    */
   async getProduct(req, res): Promise<APIResponse> {
     try {
@@ -83,9 +105,15 @@ export class ProductController {
     }
   }
 
+  
   /**
-   *  @Desc Get Poducts
+   * @Desc Get Prodcuts
+   * @param req 
+   * @param res
+   * @returns
    *
+   * 
+   * End Point: Get -> /prodcut/
    */
   async listProduct(req, res): Promise<APIResponse> {
     try {
