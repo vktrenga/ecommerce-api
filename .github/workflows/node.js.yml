@@ -4,8 +4,8 @@
 name: Node.js CI / CD
 
 on:
-  merge: 
-    branches: [ main ]
+  pull_request:
+    types: [closed]
 jobs:
   build:
 
