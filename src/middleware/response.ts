@@ -26,6 +26,7 @@ export class APIResponse {
   static success(
     data: any,
     message: string,
+    successData:'success',
     code: number | string,
     pagination: Pagination = null
   ): APIResponseData {
