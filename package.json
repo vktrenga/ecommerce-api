@@ -1,11 +1,11 @@
 {
-  "name": "concertcare",
+  "name": "Ecommerce",
   "version": "1.0.0",
   "description": "ConcertCart Sample Rest API in Node Js with express",
   "main": "server.ts",
   "scripts": {
     "test": "jest",
-    "serve": "nodemon server.ts",
+    "start": "nodemon server.ts",
     "lint": "eslint . --ext .ts"
   },
   "keywords": [
@@ -37,7 +37,7 @@
     "express-validator": "^6.14.0",
     "jest": "^27.4.5",
     "jsonwebtoken": "^8.5.1",
-    "mongodb": "^4.2.2",
+    "mongodb": "4.1",
     "mongoose": "^6.1.1"
   },
   "jest": {
@@ -45,6 +45,10 @@
       "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
     "testRegex": "(/__mocks__/.*|(\\.|/)(test|spec))\\.(ts?|ts?)$",
-    "moduleFileExtensions": ["ts", "js", "json"]
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "json"
+    ]
   }
 }
